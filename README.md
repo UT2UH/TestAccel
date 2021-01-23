@@ -13,4 +13,5 @@ Now here you can find the result of all my investigations. Please consider some 
 * if you enable I2C_DEBUG you can trace the written and the read values including the single bits
 * if you fille the _DEBUG_SLOW define with a big amount of delays, you may observe the bus status by driving LEDs (if no oscilloscope is available)
 * both debug modi require a increased code space - read the comments in the header file regarding this
+* you may save 12 instructions in this code, if you carefully count instructions and substitute all macro branches M_B*() by the matching immediate instruction I_B*() with absolute destination addresses (simply the number of instruction where to jump to) because the macro branches will compile to 2 instructions
 * have fun

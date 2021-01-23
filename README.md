@@ -9,6 +9,7 @@ Heavenly God! Okay, next step. Implementing a I2C software interface is not a bi
 Now here you can find the result of all my investigations. Please consider some points:
 
 * this example just reads one acceloration value out of a ADXL345 accelerometer and writes it into RTC_SLOW_MEMORY, you may easily change device adress and register address to test your own I2C device
+* the I2C bus clocking is nearly 400kHz (somewhat below), if you intend to use a I2C device only supporting 100kHz you need to insert delays. Have a look into TestAccel_ULP.h, I wrote down some instruction timings, so maybe you can use the instructions istself to reach the needed delay
 * if you define the RTC_SLOW_MEMORY space for writing values, consider the code length
 * if you enable I2C_DEBUG you can trace the written and the read values including the single bits (have a look on the main loop)
 * if you fill the _DEBUG_SLOW define with a big amount of delays, you may observe the bus status by driving LEDs (if no oscilloscope is available)
